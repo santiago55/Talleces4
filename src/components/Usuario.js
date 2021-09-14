@@ -34,6 +34,10 @@ function Usuario({guardarDatos, history, guardarEstado}) {
                 >
                     <option>Seleccione una categoria</option>
                     <option value="21">Deportes</option>
+                    <option value="10">libros</option>
+                    <option value="20">Mitología</option>
+                    <option value="15">videojuegos</option>
+                    <option value="9">Conocimientos generales</option>    
                 </select>
                 <label>Dificultad</label>
                 <select

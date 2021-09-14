@@ -8,6 +8,7 @@ import axios from 'axios'
 
 function Routers() {
  const [count, guardarCount]=useState(0);
+ const [bool, guardarBool]=useState(false);
     const [usuario, guardarUsuario] = useState({
         usuario: '',
         categoria: '',
@@ -72,15 +73,9 @@ function Routers() {
                     />
                 )}
                 />
-                <Route exact path="/cronometro" render={() => (
-                    <Cronometro
-                        
-                    />
-                )}
-                />
 
                 { 
-                count > 9 ? <h1>Ya no hay preguntas</h1> :
+                count > 9 ? <h1>Yan o hay más preguntas tu ganancias son: {ganancias}</h1>:
 
                 typeof preguntas !== "undefined" ?
                         <Route exact path="/preguntas" render={() => (
@@ -105,6 +100,7 @@ function Routers() {
                                 array={array}
                                 guardarArray={guardarArray}
                                 Limpiar={Limpiar}
+                                bool={bool}
                             />
                         )}
 

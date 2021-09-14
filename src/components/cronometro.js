@@ -1,3 +1,30 @@
+import React, { useRef, useEffect, useState } from "react";
+
+export default function Cronometro() {
+  const [num, setNum] = useState(15);
+  const [pause, setPause] = useState(false);
+  
+  let intervalRef = useRef();
+  
+  const decreaseNum = () => setNum((prev) => prev - 1);
+
+  useEffect(() => {
+    setPause(false);
+    intervalRef.current = setInterval(decreaseNum, 1000);
+    
+    return () => clearInterval(intervalRef.current);
+  }, []);
+  
+  return (
+    <div>
+      <h1>{num}</h1>
+      
+    </div>
+  );
+}
+
+
+
 /*import React, { Component } from 'react'
 
 class Cronometro extends Component {
@@ -36,7 +63,7 @@ class Cronometro extends Component {
 
 export default Cronometro;*/
 
-import React, { useState, useEffect } from 'react';
+/*import React, { useState, useEffect } from 'react';
 
 function Cronometro() {
     const [contador, guardarContador] = useState(30);
@@ -54,4 +81,4 @@ function Cronometro() {
         );
 }
 
-export default Cronometro;
+export default Cronometro;*/

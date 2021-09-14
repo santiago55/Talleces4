@@ -3,18 +3,18 @@ import Nav from './nav';
 import '../css/preguntas.css'
 import '../css/usuario.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+import { faBullseye, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import { withRouter } from 'react-router-dom'
 import  Cronometro from '../components/cronometro'
 function Preguntas(props) {
 
-    const [bool, guardarBool]=useState("Holis");
+    
     const {
         temp, usuario, preguntas, count, color1,
         incrementarContador, ganancias,
         ejec, guardarEjec, array, guardarArray, history, color2,
         color3, color4, guardarColor4, guardarColor3, guardarColor2,
-        guardarColor1,Limpiar,guardarEstado
+        guardarColor1,Limpiar,guardarEstado,bool
     } = props;
     let correct = preguntas[count].correct_answer;
 
@@ -82,8 +82,6 @@ function Preguntas(props) {
 
         }
     }
-    console.log(preguntas[count].correct_answer);
-    console.log(array)
     return (
         <Fragment>
             <Nav
