@@ -101,6 +101,7 @@ function Routers() {
                                 guardarArray={guardarArray}
                                 Limpiar={Limpiar}
                                 bool={bool}
+                                guardarBool={guardarBool}
                             />
                         )}
 

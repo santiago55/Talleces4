@@ -14,9 +14,10 @@ function Preguntas(props) {
         incrementarContador, ganancias,
         ejec, guardarEjec, array, guardarArray, history, color2,
         color3, color4, guardarColor4, guardarColor3, guardarColor2,
-        guardarColor1,Limpiar,guardarEstado,bool
+        guardarColor1,Limpiar,bool,guardarBool
     } = props;
     let correct = preguntas[count].correct_answer;
+    const [num, setNum] = useState(15);
 
     useEffect(() => {
         if (ejec) {
@@ -42,8 +43,15 @@ function Preguntas(props) {
     }, [ejec, guardarEjec, count, preguntas, temp, correct]);
 
 
-    
+    const final = ()=>{
+        
+        alert("Se acabo el tiempo, gracias por jugar");
+        window.location.href="/";
+    }
 
+    const volerEmpezar = ()=>{
+        setNum(15);
+    }
     const salir = () => {
         Limpiar();
         history.push('/');
@@ -70,6 +78,7 @@ function Preguntas(props) {
         }
         if (preguntas[count].correct_answer === e.target.value) {
             setTimeout(() => {
+                guardarBool(true);
                 incrementarContador();
             }, 5000);
         } else {
@@ -96,6 +105,14 @@ function Preguntas(props) {
             </div>
 
             <div className="wraper">
+                <Cronometro
+                final={final}
+                bool={bool}
+                guardarBool={guardarBool}
+                num={num}
+                setNum={setNum}
+                volerEmpezar={volerEmpezar}
+                />
                 <form className="formulario">
                     <p >{preguntas[count].question}</p>
                     <div>
